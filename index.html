@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+    <title>CSTR App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap">
+</head>
+<body>
+    <container id="main-page">
+        <h1>Welcome to the Center for Solar-Terrestrial Research Calendar</h1>
+        <a id="test-access" href="/test">Access the CSTR Calendar</a>
+        <br>
+        <a id="logout-access" href="{{ url_for('logout') }}">Logout</a>
+    </container>
+</body>
+</html>
+

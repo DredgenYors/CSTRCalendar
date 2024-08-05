@@ -1,0 +1,204 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif; /* Apply Roboto font */
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.login-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    font-family: 'Roboto', Arial, sans-serif; 
+    font-weight: 400; 
+    font-size: 16px; 
+    color: #333; 
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(209,20,48);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(197,19,50);
+}
+
+#error-message {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#main-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#calendar-access {
+    color: rgb(209,20,48);
+}
+
+#logout-access {
+    color: rgb(209,20,48);
+}
+
+#main-calendar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#event-list {
+    list-style-type: none;
+}
+
+#main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
+    flex: 2;
+}
+
+#left-container {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 700px;
+}
+
+#timeline-header {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+#event-list-container {
+    flex:1;
+    height: 700px;
+}
+
+#days-list {
+    list-style: none;
+}
+
+#parent-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+#header-container {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+#njit-logo{
+    height: 100%;
+    width: 20%;
+}
+
+#events-title {
+    font-size: 60px;
+}
+
+#month-events-title {
+    font-size: 60px;
+}
+
+#test-access {
+    color: rgb(209,20,48);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+h1 {
+    animation: fadeIn 1s ease-in-out forwards;
+    opacity: 0; /* Start hidden */
+}
+
+a {
+    animation: fadeIn 1s ease-in-out forwards;
+    animation-delay: 1s; /* Start after the h1 animation */
+    opacity: 0; /* Start hidden */
+    text-decoration: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.login-container {
+    opacity: 0; /* Start hidden */
+}
+
+.login-container.visible {
+    animation: fadeIn 1s forwards; /* Apply fade in */
+}
+
+.login-container.fade-out {
+    animation: fadeOut 1s forwards; /* Apply fade out */
+    pointer-events: none; /* Prevent interaction during fade-out */
+}
+
+

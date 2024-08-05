@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form method="POST">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+            {% if error %}
+            <p id="error-message">{{ error }}</p>
+            {% endif %}
+        </form>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginContainer = document.querySelector('.login-container');
+            loginContainer.classList.add('visible');
+
+            const loginForm = document.getElementById('loginForm');
+            loginForm.addEventListener('submit', (event) => {
+                event.preventDefault(); // Prevent form submission for demonstration purposes
+                loginContainer.classList.add('fade-out');
+                setTimeout(() => {
+                    loginForm.submit(); 
+                }, 1000); // Duration of fade-out animation
+            });
+        });
+    </script>
+</body>
+
+</html>

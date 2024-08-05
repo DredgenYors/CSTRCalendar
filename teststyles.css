@@ -1,0 +1,902 @@
+/*//////////////////////////////////////// Media ////////////////////////////////////////*/
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left-box,
+    .right-box {
+        flex: 1;
+        height: auto;
+        width: 100%;
+    }
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
+/*//////////////////////////////////////// Key Frames ////////////////////////////////////////*/
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes slowFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
+/*//////////////////////////////////////// Animations ////////////////////////////////////////*/
+#event-container.fade-out,
+#d3-timeline-chart.fade-out,
+#events-list-header-left h2.fade-out,
+#event-container.fade-out,
+#next-event-container.fade-out,
+#timeline-header h2.fade-out {
+    animation: fadeOut 0.5s ease-in-out forwards;
+    /* Apply the fade-out animation */
+}
+
+#njit-logo {
+    animation: slowFadeIn 1s ease-in-out forwards;
+}
+
+#title-text {
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+#month-dropdown,
+#day-dropdown,
+#month-list-dropdown,
+#selector-text,
+#dropdown p {
+    animation: fadeIn 1.5s ease-in-out forwards;
+    /* Apply the slower fade-in animation */
+}
+
+#timeline-header h2.fade-in,
+#events-list-header-left h2.fade-in {
+    animation: fadeIn 0.5s ease-in-out forwards;
+    /* Apply the fade-in animation */
+}
+
+#event-container.fade-in,
+#d3-timeline-chart.fade-in,
+#next-event-container.fade-in {
+    animation: fadeIn 0.8s ease-in-out forwards;
+    /* Apply the fade-in animation */
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
+/*//////////////////////////////////////// General Containers ////////////////////////////////////////*/
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    height: 90%;
+    display: flex;
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
+/*//////////////////////////////////////// Header ////////////////////////////////////////*/
+header {
+    width: 100%;
+    height: 10%;
+    background-color: #f1f1f1;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
+    position: relative;
+    /* Relative positioning for absolute children */
+}
+
+#header-logo {
+    position: absolute;
+    left: 10px;
+    /* Adjust as necessary */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#njit-logo {
+    max-width: 200px;
+    /* Set a maximum width */
+    max-height: 100%;
+    /* Set a maximum height */
+    height: auto;
+    /* Maintain aspect ratio */
+    width: auto;
+    /* Maintain aspect ratio */
+    object-fit: contain;
+    /* Ensure the image fits within the container without stretching */
+}
+
+#title {
+    flex: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#title-text {
+    font-size: 60px;
+    margin: 0;
+    /* Remove default margins */
+    white-space: nowrap;
+    /* Prevent text from wrapping */
+    font-family: Arial, sans-serif;
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
+/*//////////////////////////////////////// Left Side ////////////////////////////////////////*/
+.left-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Center content vertically */
+    box-sizing: border-box;
+    background-color: #d3d3d3;
+    height: 100%;
+    flex: 3;
+}
+
+#timeline-header {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+#timeline-header-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* Center content horizontally */
+    text-align: left;
+    /* Center text within the h2 element */
+    flex: 3;
+}
+
+#timeline-header-left h2 {
+    font-size: 4rem;
+    margin: 0;
+    /* Remove default margins */
+    font-family: Arial, sans-serif;
+    opacity: 0;
+}
+
+#timeline-header-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: right;
+}
+
+#timeline-header-right .date-selector {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* Align items to the right */
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+#timeline-header-right p {
+    margin: 0;
+    padding-bottom: 1px;
+    /* Add some space between the text and the dropdowns */
+    font-size: 3;
+}
+
+#selector-text {
+    font-style: italic;
+}
+
+#timeline-header-right select {
+    margin: 2px 0;
+    /* Add some space between the dropdowns */
+}
+
+#timeline-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 425px;
+    width: 100%;
+    flex: 5;
+}
+
+#d3-timeline-chart {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+}
+
+#d3-timeline-chart svg {
+    overflow: visible;
+}
+
+.tooltip {
+    position: absolute;
+    text-align: left;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    font-family: 'Roboto', Arial, sans-serif; /* Apply Roboto font */
+    font-weight: 400; /* Set to normal weight */
+    font-size: 14px;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+    opacity: 0;
+}
+
+#next-event-container {
+    display: block;
+    width: 100%;
+    height: 250px;
+    background-color: #f1f1f1;
+    text-align: center;
+    position: relative;
+    flex: 1;
+    opacity: 0;
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
+/*//////////////////////////////////////// Right Side ////////////////////////////////////////*/
+.right-box {
+    background-color: #b3b3b3;
+    height: 100%;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+#events-list-header {
+    display: flex;
+    flex-direction: row;
+    height: 85px;
+    flex-shrink: 0;
+}
+
+#events-list-header h2 {
+    font-size: 2rem;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding-left: 5px;
+}
+
+#events-list-header-left {
+    flex: 1;
+    height: 100%;
+}
+
+#events-list-header-left h2 {
+    opacity: 0;
+    /* Initial state is transparent */
+}
+
+#events-list-header-right {
+    flex: 1.25;
+    display: flex;
+    position: relative;
+}
+
+#dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* Align items to the right */
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#dropdown p {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    /* Prevent text from wrapping */
+    text-align: right;
+    /* Ensure text is aligned to the right */
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+#event-list-text {
+    font-style: italic;
+}
+
+#dropdown select {
+    padding-top: 1px;
+    position: absolute;
+    top: 25px;
+    right: 5px;
+}
+
+#event-container {
+    text-align: center;
+    max-height: calc(100% - 85px); /* Subtract header height */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    flex: 1;
+}
+
+#event-container::-webkit-scrollbar {
+    display: none;
+}
+
+#event-container ul {
+    margin: 0 auto;
+    /* Centers the list in the div */
+    max-width: 90%;
+    height: 100%;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+#event-container li {
+    text-align: left;
+    cursor: pointer;
+    font-family: 'Roboto', Arial, sans-serif; /* Apply Roboto font */
+    font-weight: 400; /* Set to normal weight */
+}
+
+#event-container li:hover {
+    cursor: pointer;
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
+/*//////////////////////////////////////// Dropdowns ////////////////////////////////////////*/
+.dropdown {
+    margin-left: 10px;
+    font-family: 'Roboto', Arial, sans-serif; /* Apply Roboto font */
+    font-weight: 400; /* Set to normal weight */
+}
+
+.dropdown option {
+    font-family: 'Roboto', Arial, sans-serif; /* Apply Roboto font */
+}
+
+/* Hover and focus states */
+.dropdown:hover,
+.dropdown:focus {
+    background-color: white;
+    /* Maintain white background */
+    border: 1px solid #66afe9;
+    /* Light blue border */
+    outline: none;
+    /* Remove default outline */
+    box-shadow: 0 0 5px rgba(102, 175, 233, 0.6);
+    /* Light blue shadow */
+}
+
+
+/* Remove focus appearance after selection */
+.dropdown:focus-visible {
+    outline: none;
+    /* Remove default outline for accessibility */
+}
+
+/* Remove focus background color after selection */
+.dropdown:not(:focus):not(:active) {
+    background-color: white;
+    /* Reset to white background */
+}
+
+#month-dropdown,
+#day-dropdown,
+#month-list-dropdown {
+    font-family: 'Roboto';
+    font-weight: 300; /* Set to normal weight */
+    font-size: 18px;
+    width: 150px;
+    height: 40px;
+    z-index: 10;
+    border: 1px solid #ccc;
+}
+
+/* Add a gray background on hover for other dropdowns with padding, white outline, and blue border */
+#month-dropdown:hover,
+#month-dropdown:focus,
+#month-list-dropdown:hover,
+#month-list-dropdown:focus,
+#day-dropdown:hover,
+#day-dropdown:focus {
+    background-color: lightgray;
+    /* Add gray shade to the interior */
+    border: 1px solid #b0c4de;
+    /* Light Steel Blue border */
+    box-shadow: inset 0 0 0 2px white;
+    /* Add white outline inside */
+    box-sizing: border-box;
+    /* Include padding and border in the element's width and height */
+    font-family: 'Roboto';
+    font-weight: 300; /* Set to normal weight */
+}
+
+/* Dropdown corner radius adjustment */
+select {
+    border-radius: 10px;
+    /* Adjust the radius as needed */
+    padding: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    appearance: none;
+    /* Remove default dropdown arrow */
+    -webkit-appearance: none;
+    /* Remove default dropdown arrow for Safari */
+    -moz-appearance: none;
+    /* Remove default dropdown arrow for Firefox */
+    background: url('data:image/svg+xml;utf8,<svg fill="%23000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
+    background-color: white;
+}
+
+select:focus {
+    border-color: #66afe9;
+    outline: none;
+    box-shadow: 0 0 5px rgba(102, 175, 233, 0.6);
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
+/* General styling for header containers */
+#timeline-header,
+#events-list-header-left {
+    position: relative;
+    /* Ensure the container can serve as a reference for absolute positioning of its children */
+    padding: 0;
+    /* Remove any default padding */
+    height: auto;
+}
+
+/* Ensure the h2 elements are positioned 5px from the top */
+#timeline-header h2,
+#events-list-header-left h2 {
+    position: absolute;
+    /* Position relative to the nearest positioned ancestor */
+    top: 1px;
+    /* 5px from the top of the container */
+    left: 3px;
+    /* Align to the left side */
+    margin: 0;
+    /* Remove default margins */
+    padding: 0;
+    /* Remove default padding */
+    width: calc(100% - 10px);
+    /* Full width minus side padding */
+    box-sizing: border-box;
+    /* Include padding in width calculation */
+}
+
+@media (max-width: 1500px) {
+    #timeline-header h2 {
+        font-size: 3.5rem;
+    }
+
+    #events-list-header h2 {
+        font-size: 1.75rem;
+    }
+
+    #event-list-text {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 750px) {
+    #timeline-header h2 {
+        font-size: 2.5rem;
+    }
+
+    #events-list-header h2 {
+        font-size: 1rem;
+    }
+
+    #event-list-text {
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 375px) {
+    #timeline-header h2 {
+        font-size: 2rem;
+    }
+
+    #events-list-header h2 {
+        font-size: 0.5rem;
+    }
+
+    #event-list-text {
+        font-size: 5px;
+    }
+}
+
+#timeline-header-left h2 .unbolded {
+    font-weight: lighter;
+    /* Unbold the text */
+}
+
+#timeline-header-left h2 {
+    font-weight: normal;
+}
+
+#timeline-header-left h2 .highlight {
+    font-weight: bold;
+    /* Ensure the highlighted text is bold if needed */
+    font-size: 5rem;
+    /* Set the font size for the highlighted text */
+}
+
+#events-list-header-left h2 .unbolded {
+    font-weight: normal;
+    /* Unbold the "Month of" text */
+}
+
+#events-list-header-left h2 .highlight {
+    font-weight: bold;
+    /* Keep the month name bold if desired */
+    font-size: 2rem;
+}
+
+#next-event-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    /* Hide overflow content */
+    width: 100%;
+    height: 250px;
+    /* Fixed height */
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+.carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease;
+    /* Smooth scrolling */
+    height: 100%;
+    /* Match container height */
+}
+
+.carousel-item {
+    width: 300px;
+    /* Fixed width */
+    height: 200px;
+    /* Fixed height */
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+    overflow: hidden;
+    /* Prevent content from overflowing */
+    white-space: nowrap;
+    /* Prevent text from wrapping */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Center content vertically */
+    margin-right: 10px;
+    /* Space between items */
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10;
+}
+
+.carousel-button.left {
+    left: 10px;
+}
+
+.carousel-button.right {
+    right: 10px;
+}
+
+/* Apply the Roboto font to the title text */
+#title-text {
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+/* Apply the Roboto font to the timeline header h2 */
+#timeline-header h2 {
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+/* Apply the Roboto font to the events list header left h2 */
+#events-list-header-left h2 {
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+/* Apply Roboto font to the text above the dropdowns in the timeline header */
+#selector-text {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-weight: 300; /* Regular weight */
+}
+
+/* Apply Roboto font to the text above the dropdowns in the events list header */
+#event-list-text {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-weight: 300; /* Regular weight */
+    font-style: italic; /* Keeping the italic style if needed */
+}
+
+/* Apply Roboto font to the text within carousel slides */
+.swiper-slide .event-item-slide {
+    font-family: 'Roboto', Arial, sans-serif; /* Apply Roboto font */
+    font-weight: 400; /* Set to normal weight */
+}
+
+.swiper-slide .event-item-slide .event-date,
+.swiper-slide .event-item-slide .event-title,
+.swiper-slide .event-item-slide .event-time,
+.swiper-slide .event-item-slide .event-location {
+    font-family: 'Roboto', Arial, sans-serif; /* Apply Roboto font */
+    font-weight: 400; /* Set to normal weight */
+    margin: 5px 0; /* Add some spacing between elements */
+}
+
+.axis text {
+    font-family: 'Roboto', Arial, sans-serif; /* Apply Roboto font */
+    font-weight: 400; /* Set to normal weight */
+}
+
+.axis-text {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-weight: 400;
+    font-size: 12px; /* Adjust as needed */
+  }
+
+/* Apply Roboto font to all dropdowns and options */
+select option {
+    font-family: 'Roboto', Arial, sans-serif; /* Apply Roboto font */
+    font-weight: 300; /* Set to normal weight */
+    font-size: 16px; /* Adjust size as needed */
+}
+
+/* Change the color of pagination bullets */
+.swiper-pagination-bullet {
+    background-color: #cccccc; /* Set your desired color */
+}
+
+/* Change the color of active pagination bullet */
+.swiper-pagination-bullet-active {
+    background-color: rgb(205, 0, 0) !important;
+}
+
+/* Change the color of the next button arrow */
+.swiper-button-next {
+    color: black !important; /* Set your desired color */
+}
+
+/* Change the color of the prev button arrow */
+.swiper-button-prev {
+    color: black !important;/* Set your desired color */
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.swiper-container {
+    opacity: 1;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1500px) {
+    #timeline-header h2 {
+        font-size: 3.5rem;
+    }
+
+    #events-list-header h2 {
+        font-size: 1.75rem;
+    }
+
+    #event-list-text {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left-box,
+    .right-box {
+        flex: 1;
+        height: auto;
+        width: 100%;
+    }
+
+    #timeline-header h2 {
+        font-size: 2.5rem;
+    }
+
+    #events-list-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .swiper-slide {
+        width: calc((100% - 20px) / 2); /* Adjust slide width for smaller screens */
+    }
+}
+
+@media (max-width: 500px) {
+    #timeline-header h2 {
+        font-size: 2rem;
+    }
+
+    #events-list-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .swiper-slide {
+        width: 100%; /* Single column for very small screens */
+        height: auto; /* Allow height to adjust based on content */
+    }
+
+    .swiper-container {
+        height: auto; /* Allow container height to adjust */
+    }
+}
+
+@media (max-width: 375px) {
+    #timeline-header h2 {
+        font-size: 1.5rem;
+    }
+
+    #events-list-header h2 {
+        font-size: 1rem;
+    }
+
+    #event-list-text {
+        font-size: 8px;
+    }
+
+    .swiper-slide {
+        font-size: 14px; /* Reduce font size for better fit */
+    }
+}
+
+/* Additional Responsive Adjustments */
+#title-text {
+    font-size: calc(1.5rem + 1vw); /* Responsive font size for the title */
+}
+
+.left-box, .right-box {
+    padding: 15px; /* Add padding for small screens */
+}
+
+#event-container ul {
+    max-width: 100%; /* Ensure list width is 100% */
+}
+
+.dropdown {
+    width: 100%; /* Full width dropdowns */
+    margin: 5px 0; /* Space between dropdowns */
+}
+
+#month-dropdown, #day-dropdown, #month-list-dropdown {
+    width: 100%; /* Full width dropdowns */
+}
+
+.swiper-container {
+    padding: 10px 0; /* Add padding around the swiper container */
+}
+
+/* Carousel Container Adjustments */
+#next-event-container {
+    height: 250px; /* Default height */
+}
+
+.carousel-item {
+    width: 300px; /* Default width */
+    height: 200px; /* Default height */
+}
+
+/* Adjustments for screens smaller than 1400px */
+@media (max-width: 1200px) {
+    #next-event-container {
+        height: 220px; /* Slightly smaller height */
+    }
+
+    .swiper-slide {
+        width: 260px; /* Slightly smaller width */
+        height: 180px; /* Slightly smaller height */
+    }
+}
+
+@media (max-width: 768px) {
+    #next-event-container {
+        height: 200px; /* Smaller height for medium screens */
+    }
+
+    .carousel-item {
+        width: 240px; /* Smaller width */
+        height: 160px; /* Smaller height */
+    }
+}
+
+@media (max-width: 500px) {
+    #next-event-container {
+        height: 150px; /* Smaller height for small screens */
+    }
+
+    .carousel-item {
+        width: 200px; /* Smaller width */
+        height: 120px; /* Smaller height */
+    }
+}
+
+@media (max-width: 375px) {
+    #next-event-container {
+        height: 120px; /* Smaller height for very small screens */
+    }
+
+    .carousel-item {
+        width: 160px; /* Smaller width */
+        height: 100px; /* Smaller height */
+    }
+}

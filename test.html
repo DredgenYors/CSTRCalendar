@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Upcoming CSTR Events</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='teststyles.css') }}">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap">
+    <style>
+        #next-event-container {
+            display: block;
+            width: 100%;
+            max-width: 1395px;
+            height: 250px;
+            background-color: #f1f1f1;
+            text-align: center;
+            position: relative;
+            flex: 1;
+            padding-bottom: 115px; /* Add padding to the bottom */
+            opacity: 0;
+            border-radius: 10px; /* Add border radius */
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            background: #eee;
+            height: 200px; /* Set a smaller height for each slide */
+            width: calc((100% - 20px) / 3); /* Ensure slide width is one-third of the container */
+            box-sizing: border-box; /* Include padding and border in width */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id='header-logo'>
+            <img src="https://github.com/DredgenYors/CSTRIMGs/blob/main/njit-logo.png?raw=true" alt="njit-logo"
+                id="njit-logo">
+        </div>
+        <div id="title">
+            <h1 id="title-text">Center for Solar-Terrestrial Research Events</h1>
+        </div>
+    </header>
+    <div class="container">
+        <div class="left-box">
+            <div id="timeline-header">
+                <div id="timeline-header-left">
+                    <h2><span class="unbolded">Events of</span> <span class="highlight">Today</span></h2>
+                </div>
+                <div id="timeline-header-right">
+                    <div class="date-selector">
+                        <p id="selector-text">Choose a date to display events</p>
+                        <select class="dropdown" id="month-dropdown">
+                        </select>
+                        <select class="dropdown" id="day-dropdown">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div id="timeline-container">
+                <div id="d3-timeline-chart"></div>
+            </div>
+            <div id="next-event-container">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">Slide 1</div>
+                        <div class="swiper-slide">Slide 2</div>
+                        <div class="swiper-slide">Slide 3</div>
+                        <div class="swiper-slide">Slide 4</div>
+                        <div class="swiper-slide">Slide 5</div>
+                        <div class="swiper-slide">Slide 6</div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </div>
+        <div class="right-box">
+            <div id="events-list-header">
+                <div id="events-list-header-left">
+                    <h2><span class="unbolded">Month of</span> <span class="highlight">{{ month }}</span></h2>
+                </div>
+                <div id="events-list-header-right">
+                    <div id='dropdown'>
+                        <p id="event-list-text">Choose a month to display event list</p>
+                        <select class="dropdown" id="month-list-dropdown">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div id="event-container">
+            </div>
+        </div>
+    </div>
+
+    <script async defer src="https://apis.google.com/js/api.js" defer></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="static/testscripts.js" defer></script>
+</body>
+
+</html>
